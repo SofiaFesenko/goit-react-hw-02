@@ -8,11 +8,12 @@ import Notification from './components/Notification'
 
 function App() {
   const [opinion, setOpinion] = useState(() => {
-    return JSON.parse(window.localStorage.getItem("opinion")) ?? 0
-  })
-    
 
-  console.log(opinion.good);
+    if (window.localStorage.getItem("opinion") !== null) {
+      return JSON.parse(window.localStorage.getItem("opinion"));
+    }
+
+  })
 
   useEffect(() => {
     window.localStorage.setItem("opinion", JSON.stringify(opinion))
@@ -24,7 +25,6 @@ function App() {
 
 
   const updateFeedback = feedbackType => {
-    console.log(feedbackType);
     if (feedbackType == "reset") {
       setOpinion({ good: 0, neutral: 0, bad: 0 })
     }
