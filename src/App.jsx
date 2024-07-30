@@ -55,15 +55,6 @@ function App() {
     }
   );
 
-
-  // const [opinion, setOpinion] = useState(() => {
-
-  //   if (window.localStorage.getItem("opinion") !== null) {
-  //     return JSON.parse(window.localStorage.getItem("opinion"));
-  //   }
-
-  // })
-
   useEffect(() => {
     window.localStorage.setItem("opinion", JSON.stringify(opinion))
   }, [opinion]);
